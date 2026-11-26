@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>LUXORA – Beyond Ordinary Stays</title>
+<style>
+:root{--ink:#0d0a08;--ink2:#1a1411;--ivory:#f3ead8;--gold:#c9a15b;--mute:#a89c88;--glass:rgba(243,234,216,.08);--line:rgba(201,161,91,.28);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ink:#0d0a08}}
+*,*:before,*:after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--ink);color:var(--ivory);font:16px/1.6 Georgia,'Times New Roman',serif;overflow-x:hidden}
+h1,h2,h3{font-weight:400;letter-spacing:.01em;margin:0}button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sans{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+#load{position:fixed;inset:0;background:var(--ink);z-index:99;display:grid;place-items:center;transition:opacity 1s,visibility 1s}
+#load.off{opacity:0;visibility:hidden}.door{display:flex;width:120px;height:160px;perspective:400px}
+.door i{flex:1;border:1px solid var(--gold);background:linear-gradient(#2b2017,#120d0a);animation:dl 1.6s ease-in-out infinite alternate;transform-origin:left}.door i+i{transform-origin:right;animation-name:dr}
+@keyframes dl{to{transform:rotateY(-70deg)}}@keyframes dr{to{transform:rotateY(70deg)}}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;display:flex;align-items:center;gap:22px;padding:14px 4vw;background:linear-gradient(var(--ink),transparent);backdrop-filter:blur(6px)}
+nav b{font-size:22px;letter-spacing:.35em;color:var(--gold);font-weight:400;margin-right:auto}nav a{color:var(--ivory);text-decoration:none;font-size:14px;opacity:.85}nav a:hover{color:var(--gold)}
+.mt{background:none;border:1px solid var(--line);border-radius:20px;padding:4px 12px;font-size:12px}
+@media(max-width:860px){nav a{display:none}}
+#hero{position:relative;height:100vh;min-height:640px;overflow:hidden;display:grid;align-items:center;perspective:900px}
+#cv,#fb{position:absolute;inset:0;width:100%;height:100%}
+#fb{background:radial-gradient(ellipse at 50% 70%,#6b3f1d,#2a1a10 40%,#0d0a08 80%)}
+.ht{position:relative;z-index:2;padding:0 6vw;margin-top:-14vh;transform-style:preserve-3d;pointer-events:none}
+.ht h1{font-size:clamp(40px,7vw,104px);line-height:1;max-width:11em;text-shadow:0 10px 50px #000}.ht p{font-size:clamp(16px,2vw,22px);color:var(--ivory);opacity:.85;max-width:30em;text-shadow:0 2px 20px #000}
+.sp{position:absolute;z-index:3;left:50%;bottom:6vh;width:min(1080px,94vw);transform:translateX(-50%);padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--glass);backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 1px rgba(255,255,255,.15);display:grid;grid-template-columns:repeat(4,1fr);gap:12px;transition:transform .3s}
+.f{display:flex;flex-direction:column;font:12px system-ui;color:var(--mute);gap:4px}.f input,.f select{background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:14px system-ui;color:var(--ivory);width:100%}
+.f select option{background:#1a1411}.cb{flex-direction:row;align-items:center;gap:8px;font-size:13px}.cb input{width:auto}
+.btn{background:linear-gradient(135deg,#e2bd78,#a87d35);color:#1a1006;border:0;border-radius:10px;padding:12px 18px;font:600 14px system-ui;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(201,161,91,.4)}
+.btn.g{background:none;color:var(--ivory);border:1px solid var(--line)}
+@media(max-width:860px){.sp{position:relative;grid-template-columns:1fr 1fr;left:auto;transform:none;margin:0 auto;align-self:end;bottom:auto;margin-bottom:20px}#hero{height:auto;min-height:100vh;padding-top:90px}.ht{margin-top:0;padding-bottom:40px}}
+section{padding:90px 5vw;position:relative}.sh{display:flex;justify-content:space-between;align-items:end;margin-bottom:34px;gap:20px;flex-wrap:wrap}.sh h2{font-size:clamp(30px,4vw,52px)}.sh p{color:var(--mute);margin:6px 0 0;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:26px;perspective:1200px}
+.card{position:relative;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,#241a14,#120d0a);overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease-out,box-shadow .3s;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.card:hover{box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 40px rgba(201,161,91,.15)}
+.img{height:190px;position:relative}.img svg{width:100%;height:100%;display:block}.deal{position:absolute;top:12px;left:12px;background:var(--gold);color:#1a1006;font:600 11px system-ui;padding:3px 10px;border-radius:12px;transform:translateZ(40px)}
+.fav{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.45);border:0;border-radius:50%;width:34px;height:34px;font-size:16px;transform:translateZ(40px)}.fav.on{color:#ff8a7a}
+.cbody{padding:16px 18px 18px;transform:translateZ(20px)}.cbody h3{font-size:22px}.meta{font:13px system-ui;color:var(--mute);margin:4px 0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}.score{background:var(--gold);color:#1a1006;border-radius:8px 8px 8px 0;padding:2px 8px;font:700 13px system-ui}
+.am{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.am span{font:11px system-ui;border:1px solid var(--line);border-radius:12px;padding:2px 9px;color:var(--mute)}.price{font-size:26px;color:var(--gold)}.price small{font:12px system-ui;color:var(--mute)}
+.ok{color:#8fd19e}.no{color:var(--mute)}
+#empty{display:none;padding:40px;text-align:center;color:var(--mute)}
+#map{display:grid;grid-template-columns:2fr 1fr;gap:26px;align-items:center}@media(max-width:860px){#map{grid-template-columns:1fr}}
+.stage{height:460px;perspective:1000px;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:radial-gradient(#2a1d13,#0d0a08);position:relative}
+.plane{position:absolute;left:50%;top:50%;width:520px;height:520px;margin:-260px 0 0 -260px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(var(--rz,-25deg));transition:transform 1.2s cubic-bezier(.2,.8,.2,1);background:linear-gradient(rgba(201,161,91,.14) 1px,transparent 1px) 0 0/52px 52px,linear-gradient(90deg,rgba(201,161,91,.14) 1px,transparent 1px) 0 0/52px 52px,#17110d;border:1px solid var(--line);box-shadow:0 0 90px rgba(201,161,91,.15)}
+.river{position:absolute;left:0;right:0;top:55%;height:46px;background:linear-gradient(90deg,#17323a,#2a5a66,#17323a);opacity:.8;transform:rotate(-8deg)}
+.pin{position:absolute;width:0;height:0;transform-style:preserve-3d;border:0;background:none;padding:0}
+.pin i{position:absolute;left:-9px;top:-9px;width:18px;height:18px;background:var(--gold);transform-origin:center bottom;transform:translateZ(var(--h,40px));box-shadow:0 0 18px var(--gold);border-radius:3px}
+.pin:before{content:'';position:absolute;left:-2px;top:-2px;width:4px;height:4px;background:var(--gold);transform:translateZ(0);box-shadow:0 0 0 var(--h) var(--gold);opacity:0}
+.pin u{position:absolute;left:-1px;top:-1px;width:2px;height:2px;background:var(--gold);transform-origin:bottom;transform:rotateX(-90deg);height:var(--h);box-shadow:0 0 8px var(--gold)}
+.pin.poi i{background:#6fb6c4;box-shadow:0 0 12px #6fb6c4;border-radius:50%;--h:14px}.pin.sel i{background:#fff;transform:translateZ(var(--h)) scale(1.5)}
+.pin span{position:absolute;transform:translateZ(calc(var(--h) + 18px)) rotateX(-58deg) rotateZ(25deg);font:11px system-ui;white-space:nowrap;left:12px;top:-16px;text-shadow:0 1px 4px #000}
+.info{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--glass);backdrop-filter:blur(14px)}
+.nb{display:grid;gap:10px;margin-top:16px}.nb div{display:flex;justify-content:space-between;font:13px system-ui;border-top:1px solid var(--line);padding-top:8px}
+dialog{width:min(980px,96vw);max-height:92vh;border:1px solid var(--line);border-radius:20px;background:#15100c;color:var(--ivory);padding:0;overflow:auto}dialog::backdrop{background:rgba(0,0,0,.8);backdrop-filter:blur(6px)}
+.dh{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:#15100cee;border-bottom:1px solid var(--line)}.dh button{background:none;border:0;font-size:24px}
+.db{padding:22px}.tour{perspective:900px;height:300px;position:relative;border-radius:14px;overflow:hidden;background:#000}.tour .room3d{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}.tour svg{width:100%;height:100%}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tabs button{border:1px solid var(--line);background:none;border-radius:20px;padding:5px 14px;font:13px system-ui}.tabs button.on{background:var(--gold);color:#1a1006}
+.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:14px 0}.room{border:1px solid var(--line);border-radius:14px;padding:14px;font:13px system-ui;color:var(--mute);transition:transform .3s;transform-style:preserve-3d}.room:hover{transform:rotateY(-4deg) translateZ(10px)}.room h4{font:400 20px Georgia;color:var(--ivory);margin:0}
+table{width:100%;border-collapse:collapse;font:13px system-ui;display:block;overflow-x:auto}td,th{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--mute);font-weight:500}
+.dm{display:inline-block;background:#5a2d2d;color:#ffd6cf;font:11px system-ui;padding:2px 8px;border-radius:10px;margin-left:8px}
+.bars div{display:flex;align-items:center;gap:8px;font:12px system-ui;margin:4px 0}.bars i{flex:1;height:6px;background:#2a2019;border-radius:3px;overflow:hidden}.bars b{display:block;height:100%;background:var(--gold);width:0;transition:width 1s}
+.rv{border-top:1px solid var(--line);padding:12px 0;font-size:15px}.rv small{font:12px system-ui;color:var(--mute)}
+.steps{display:flex;gap:6px;margin-bottom:18px}.steps i{flex:1;height:3px;background:#2a2019;border-radius:2px}.steps i.on{background:var(--gold)}
+.bf{display:grid;gap:12px;max-width:520px}.sum{font:14px system-ui;border:1px solid var(--line);border-radius:12px;padding:14px}.sum div{display:flex;justify-content:space-between;padding:3px 0}
+footer{padding:70px 5vw 40px;background:linear-gradient(var(--ink),#050302);border-top:1px solid var(--line);perspective:800px}.fg{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:30px}@media(max-width:760px){.fg{grid-template-columns:1fr 1fr}}
+footer h4{margin:0 0 10px;color:var(--gold);font-weight:400}footer a{display:block;color:var(--mute);text-decoration:none;font:14px system-ui;margin:5px 0}footer a:hover{color:var(--ivory)}
+.big{font-size:clamp(50px,13vw,190px);letter-spacing:.3em;color:transparent;-webkit-text-stroke:1px var(--line);text-align:center;margin-top:40px;transform:rotateX(35deg);transform-origin:bottom}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1a1006;padding:10px 18px;border-radius:20px;font:600 13px system-ui;z-index:100;display:none}
+.rm *{animation:none!important;transition:none!important}
+</style></head><body>
+<div id="load"><div class="door"><i></i><i></i></div></div>
+<nav aria-label="Main"><b>LUXORA</b><a href="#hero">Discover</a><a href="#hotels">Hotels</a><a href="#map">Destinations</a><a href="#offers">Offers</a><a href="#" data-t="No bookings yet. Demo reservations appear here after you book.">My Bookings</a><a href="#" id="favl">Favorites (0)</a><a href="#" data-t="Sign-in is not connected yet.">Profile</a><button class="mt" id="rmb" aria-pressed="false">Reduce motion</button></nav>
+
+<header id="hero"><div id="fb"></div><canvas id="cv" aria-hidden="true"></canvas>
+<div class="ht"><h1>Discover Your Extraordinary Stay</h1><p>Find the perfect place to escape, explore and experience luxury.</p></div>
+<form class="sp" id="sf" aria-label="Search hotels">
+<label class="f">Destination<select id="q"><option value="">Anywhere</option><option>Lisbon</option><option>Udaipur</option><option>Santorini</option><option>Kyoto</option></select></label>
+<label class="f">Check-in<input type="date" id="ci"></label><label class="f">Check-out<input type="date" id="co"></label>
+<label class="f">Guests<input type="number" id="gu" min="1" max="12" value="2"></label>
+<label class="f">Rooms<input type="number" id="rn" min="1" max="6" value="1"></label>
+<label class="f">Max price per night: <b id="pv" style="color:var(--gold)">$1,200</b><input type="range" id="pr" min="150" max="1200" step="50" value="1200"></label>
+<label class="f">Guest rating<select id="rt"><option value="0">Any</option><option value="8">8+ Very good</option><option value="9">9+ Exceptional</option></select></label>
+<div style="display:flex;gap:10px;align-items:end"><label class="f cb"><input type="checkbox" id="fc">Free cancellation</label><button class="btn" style="margin-left:auto">Search hotels</button></div></form></header>
+
+<section id="hotels"><div class="sh"><div><h2>Hotels worth the journey</h2><p>Tilt a card to feel the depth. Select a hotel to step inside.</p></div><span class="sans" style="color:var(--mute)" id="cnt"></span></div><div class="grid" id="hg"></div><div id="empty">No hotels match these filters. Raise the price limit or clear free cancellation.</div></section>
+
+<section id="offers"><div class="sh"><div><h2>Offers</h2><p>Demo offers for design purposes. No live availability.</p></div></div><div class="grid" id="og"></div></section>
+
+<section id="map-s"><div class="sh"><div><h2>The city in three dimensions</h2><p>Gold towers are hotels, blue points are places to explore. Click one to fly the camera there.</p></div><div class="sans"><label>City <select id="cs" style="background:#1a1411;border:1px solid var(--line);border-radius:8px;padding:6px"></select></label></div></div>
+<div id="map"><div class="stage" id="stage"><div class="plane" id="plane"><div class="river"></div></div></div><div class="info" id="mi"></div></div></section>
+
+<footer><div class="fg"><div><h4>About LUXORA</h4><p class="sans" style="color:var(--mute);font-size:14px;max-width:26em">A concept for a hotel discovery and booking platform. All hotels, prices and reviews here are demo data.</p></div>
+<div><h4>Contact</h4><a href="#">concierge@luxora.example</a><a href="#">+00 000 000 000</a></div><div><h4>Destinations</h4><a href="#map-s">Lisbon</a><a href="#map-s">Udaipur</a><a href="#map-s">Santorini</a><a href="#map-s">Kyoto</a></div><div><h4>Company</h4><a href="#">Hotel partners</a><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div></div><div class="big" aria-hidden="true">LUXORA</div></footer>
+
+<dialog id="dlg"><div class="dh"><h3 id="dt"></h3><button id="dx" aria-label="Close">×</button></div><div class="db" id="dbd"></div></dialog><div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let RM=matchMedia('(prefers-reduced-motion: reduce)').matches;const rmb=$('#rmb');
+function setRM(v){RM=v;document.body.classList.toggle('rm',v);rmb.setAttribute('aria-pressed',v)}setRM(RM);rmb.onclick=()=>setRM(!RM);
+function toast(t){const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',2600)}
+$$('[data-t]').forEach(a=>a.onclick=e=>{e.preventDefault();toast(a.dataset.t)});
+const $c=n=>'$'+n.toLocaleString();
+// ---- demo data (all fictional) ----
+const H=[
+{id:0,n:'Palácio Aurelia',c:'Lisbon',s:5,r:9.3,p:420,d:0.8,fc:1,deal:'Save 15%',am:['Rooftop','Spa','Pool','Gym'],hue:28,m:[40,30]},
+{id:1,n:'Lake Mirage Palace',c:'Udaipur',s:5,r:9.6,p:690,d:1.2,fc:1,deal:'Breakfast included',am:['Lake view','Spa','Pool','Garden'],hue:200,m:[62,55]},
+{id:2,n:'Caldera Noir',c:'Santorini',s:5,r:9.1,p:980,d:2.4,fc:0,deal:'',am:['Infinity pool','Restaurant','Spa'],hue:340,m:[30,62]},
+{id:3,n:'Hinoki House',c:'Kyoto',s:4,r:8.8,p:310,d:0.5,fc:1,deal:'Late checkout',am:['Onsen','Garden','Restaurant'],hue:130,m:[55,28]},
+{id:4,n:'Tagus Grand',c:'Lisbon',s:4,r:8.4,p:230,d:0.3,fc:1,deal:'Save 10%',am:['Gym','Restaurant','Rooftop'],hue:15,m:[22,45]},
+{id:5,n:'Maharana Residency',c:'Udaipur',s:4,r:8.7,p:190,d:0.9,fc:0,deal:'',am:['Pool','Garden','Restaurant'],hue:40,m:[34,24]},
+{id:6,n:'Aegean Pearl',c:'Santorini',s:4,r:8.9,p:520,d:1.1,fc:1,deal:'Free upgrade',am:['Pool','Spa','Gym'],hue:190,m:[58,35]},
+{id:7,n:'Gion Lantern Inn',c:'Kyoto',s:5,r:9.4,p:760,d:0.4,fc:0,deal:'',am:['Onsen','Spa','Garden','Rooftop'],hue:5,m:[28,56]}];
+const POI={Lisbon:['Old Town','Riverside Market','Castle Hill','Metro Central'],Udaipur:['City Palace','Lake Pier','Bazaar Street','Rail Station'],Santorini:['Fira Square','Sunset Point','Harbour','Bus Terminal'],Kyoto:['Shrine Gate','Tea District','Bamboo Walk','Central Station']};
+const SP=['Lobby','Rooms','Restaurant','Pool','Gym','Spa','Garden','Rooftop','Exterior'];
+const RT=[['Standard Room',1,2,'Queen bed',0.6],['Deluxe Room',1.35,2,'King bed',1],['Premium Suite',1.9,3,'King + sofa bed',1],['Luxury Suite',2.6,4,'2 king beds',1],['Presidential Suite',4.5,6,'Master king + 2 queens',0]];
+function art(h,i,big){const a=`hsl(${h},60%,${big?26:22}%)`,b=`hsl(${(h+30)%360},70%,50%)`;let w='';for(let k=0;k<26;k++)w+=`<rect x="${60+(k%9)*26}" y="${70+Math.floor(k/9)*24}" width="10" height="14" fill="#ffd994" opacity="${.4+((k*37+i*11)%10)/16}"/>`;
+return`<svg viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g${i}${big}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${b}"/><stop offset=".6" stop-color="${a}"/><stop offset="1" stop-color="#0d0a08"/></linearGradient></defs><rect width="320" height="190" fill="url(#g${i}${big})"/><circle cx="260" cy="40" r="16" fill="#ffe9b8" opacity=".7"/><rect x="50" y="55" width="240" height="86" fill="#120d0a"/><rect x="40" y="48" width="260" height="10" fill="#c9a15b"/>${w}<rect x="0" y="141" width="320" height="49" fill="${a}" opacity=".8"/><rect x="60" y="150" width="130" height="22" rx="4" fill="#6fb6c4" opacity=".7"/></svg>`}
+// ---- cards ----
+const favs=new Set();
+function card(h){return`<article class="card" data-i="${h.id}"><div class="img">${art(h.hue,h.id)}${h.deal?`<span class="deal">${h.deal}</span>`:''}<button class="fav ${favs.has(h.id)?'on':''}" aria-label="Favorite ${h.n}">♥</button></div><div class="cbody"><div class="row"><h3>${h.n}</h3><span class="score">${h.r}</span></div><div class="meta">${'★'.repeat(h.s)} · ${h.c} · ${h.d} km from center</div><div class="am">${h.am.map(a=>`<span>${a}</span>`).join('')}</div><div class="meta ${h.fc?'ok':'no'}">${h.fc?'Free cancellation':'Non-refundable rate'}</div><div class="row" style="margin-top:8px"><div class="price">${$c(h.p)}<small> / night</small></div></div><div class="row" style="margin-top:12px"><button class="btn g v">View hotel</button><button class="btn b">Book now</button></div></div></article>`}
+function tilt(el){el.addEventListener('pointermove',e=>{if(RM)return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg) translateZ(14px)`});el.addEventListener('pointerleave',()=>el.style.transform='')}
+function render(){const f=filt(),g=$('#hg');g.innerHTML=f.map(card).join('');$('#empty').style.display=f.length?'none':'block';$('#cnt').textContent=f.length+' of '+H.length+' demo hotels';$$('#hg .card').forEach(tilt);
+$$('#hg .card').forEach(c=>{const id=+c.dataset.i;c.querySelector('.v').onclick=()=>openH(id);c.querySelector('.b').onclick=()=>openH(id,1);c.querySelector('.fav').onclick=e=>{favs.has(id)?favs.delete(id):favs.add(id);e.target.classList.toggle('on');$('#favl').textContent=`Favorites (${favs.size})`}})}
+function filt(){const q=$('#q').value,p=+$('#pr').value,r=+$('#rt').value,fc=$('#fc').checked;return H.filter(h=>(!q||h.c==q)&&h.p<=p&&h.r>=r&&(!fc||h.fc))}
+$('#pr').oninput=e=>$('#pv').textContent=$c(+e.target.value);
+$('#sf').onsubmit=e=>{e.preventDefault();render();$('#hotels').scrollIntoView({behavior:RM?'auto':'smooth'})};
+const t0=new Date(Date.now()+864e5*14),t1=new Date(+t0+864e5*3),iso=d=>d.toISOString().slice(0,10);$('#ci').value=iso(t0);$('#co').value=iso(t1);$('#ci').min=iso(new Date());
+$('#og').innerHTML=H.filter(h=>h.deal).map(h=>`<div class="card" style="padding:20px"><h3>${h.deal}</h3><p class="meta">${h.n}, ${h.c}</p><button class="btn g" onclick="openH(${h.id})">See offer</button></div>`).join('');$$('#og .card').forEach(tilt);
+render();
+// ---- detail ----
+const nights=()=>Math.max(1,Math.round((new Date($('#co').value)-new Date($('#ci').value))/864e5)||1);
+const dlg=$('#dlg');$('#dx').onclick=()=>dlg.close();
+function openH(id,book){const h=H[id];$('#dt').textContent=h.n+' · '+h.c;const rev=[['Amara','The lobby alone is worth the stay. Quiet, warm and unhurried.',5],['Daniel','Spotless rooms, a perfect location, and staff who remember your name.',5],['Mei','Great value for the level of service. Breakfast on the terrace was the highlight.',4]];
+const prov=[['Hotel direct',h.p,h.fc?'Free until 48h before':'Non-refundable','Yes','Pay at property'],['Travel platform A',Math.round(h.p*1.05),'Free until 24h before','No','Pay now'],['Booking partner B',Math.round(h.p*.98),'Non-refundable','Yes','Pay now, ID required']];
+$('#dbd').innerHTML=`<div class="tour" id="tr"><div class="room3d" id="r3">${art(h.hue,h.id,1)}</div></div><div class="tabs sans" id="tb">${SP.map((s,i)=>`<button class="${i==8?'on':''}" data-s="${i}">${s}</button>`).join('')}</div>
+<p class="meta" id="tcap">Drag across the scene to look around. Pick a space to move the camera.</p>
+<h3>Rooms</h3><div class="rooms">${RT.map((r,i)=>`<div class="room"><h4>${r[0]}</h4>${r[3]} · sleeps ${r[2]}<br>${['Wi-Fi','Rain shower','Minibar','Balcony','Butler'].slice(0,2+i).join(', ')}<br><span class="${r[4]?'ok':'no'}">${r[4]?'Demo: available':'Demo: sold out'}</span><div class="row" style="margin-top:8px"><span class="price" style="font-size:22px">${$c(Math.round(h.p*r[1]))}</span><button class="btn" ${r[4]?'':'disabled style="opacity:.4"'} data-r="${i}">Select</button></div></div>`).join('')}</div>
+<h3>Compare prices <span class="dm">Demo data, not live</span></h3><table><tr><th>Provider</th><th>Price/night</th><th>Cancellation</th><th>Breakfast</th><th>Conditions</th></tr>${prov.map(p=>`<tr><td>${p[0]}</td><td>${$c(p[1])}</td><td>${p[2]}</td><td>${p[3]}</td><td>${p[4]}</td></tr>`).join('')}</table>
+<h3 style="margin-top:26px">Guest reviews</h3><div style="display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin:12px 0"><div style="text-align:center"><div class="price" style="font-size:54px">${h.r}</div><small class="sans">Exceptional · demo</small></div><div class="bars">${[['Cleanliness',9.5],['Location',9.2],['Service',9.6],['Comfort',9],['Value',8.4]].map(x=>`<div><span style="width:90px">${x[0]}</span><i><b data-w="${x[1]*10}"></b></i>${x[1]}</div>`).join('')}</div></div>${rev.map(r=>`<div class="rv">“${r[1]}”<br><small>${r[0]} · ${'★'.repeat(r[2])} · demo review</small></div>`).join('')}
+<h3 style="margin-top:22px">Nearby hotels</h3><div class="nb">${H.filter(x=>x.c==h.c&&x.id!=id).concat(H.filter(x=>x.c!=h.c).slice(0,1)).map(x=>`<div><span>${x.n} · ${x.d} km</span><span>${x.r} · ${$c(x.p)} · ${x.fc?'Available (demo)':'Few rooms (demo)'}</span></div>`).join('')||'<div>No other demo hotels in this city.</div>'}</div>`;
+dlg.showModal();dlg.scrollTop=0;
+const poses=[['rotateY(0) scale(1.3) translateZ(80px)','Lobby: marble floors, a double-height ceiling and a quiet lounge.'],['rotateY(-18deg) scale(1.5) translate(8%,6%)','Rooms: five categories from Standard to Presidential.'],['rotateY(14deg) scale(1.5) translate(-8%,8%)','Restaurant: seasonal tasting menus.'],['rotateX(12deg) scale(1.6) translateY(-14%)','Pool: heated and lit after dusk.'],['rotateY(10deg) scale(1.5) translate(-12%,-6%)','Gym: open around the clock.'],['rotateY(-10deg) scale(1.5) translate(12%,-6%)','Spa: treatment rooms and a steam suite.'],['rotateX(20deg) scale(1.5) translateY(-20%)','Garden: shaded paths and a courtyard.'],['rotateX(-10deg) scale(1.7) translateY(14%)','Rooftop: a bar with skyline views.'],['none','Exterior: the hotel at golden hour.']];
+$$('#tb button').forEach(b=>b.onclick=()=>{$$('#tb button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const p=poses[+b.dataset.s];$('#r3').style.transform=p[0];$('#tcap').textContent=p[1]});
+const tr=$('#tr');tr.onpointermove=e=>{if(RM)return;const r=tr.getBoundingClientRect();$('#r3').style.transition='transform .2s';$('#r3').style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*16}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*10}deg) scale(1.15)`};
+setTimeout(()=>$$('.bars b').forEach(b=>b.style.width=b.dataset.w+'%'),80);
+$$('[data-r]').forEach(b=>b.onclick=()=>booking(h,+b.dataset.r));if(book)booking(h,1)}
+// ---- booking ----
+function booking(h,ri){let st=0,g={n:'',e:'',gs:+$('#gu').value||2};const rm=RT[ri],N=nights(),sub=Math.round(h.p*rm[1])*N*(+$('#rn').value||1),tax=Math.round(sub*.12),fee=Math.round(sub*.04);
+const draw=()=>{const L=['Room','Dates','Guests','Your details','Summary','Confirmation'];$('#dbd').innerHTML=`<div class="steps">${L.map((_,i)=>`<i class="${i<=st?'on':''}"></i>`).join('')}</div><h3 style="margin-bottom:14px">${L[st]}</h3><div class="bf sans" id="bf"></div>`;const b=$('#bf');
+if(st==0)b.innerHTML=`<div class="sum"><div><span>${rm[0]}</span><span>${$c(Math.round(h.p*rm[1]))}/night</span></div><div><span>${rm[3]}</span><span>Sleeps ${rm[2]}</span></div></div>`;
+if(st==1)b.innerHTML=`<label class="f">Check-in<input type="date" id="b1" value="${$('#ci').value}"></label><label class="f">Check-out<input type="date" id="b2" value="${$('#co').value}"></label>`;
+if(st==2)b.innerHTML=`<label class="f">Guests<input type="number" id="b3" min="1" max="${rm[2]}" value="${Math.min(g.gs,rm[2])}"></label>`;
+if(st==3)b.innerHTML=`<label class="f">Full name<input id="b4" value="${g.n}" autocomplete="name"></label><label class="f">Email<input id="b5" type="email" value="${g.e}" autocomplete="email"></label>`;
+if(st==4)b.innerHTML=`<div class="sum"><div><span>${h.n}, ${rm[0]}</span></div><div><span>${$('#ci').value} to ${$('#co').value}</span><span>${N} night${N>1?'s':''}</span></div><div><span>Room total</span><span>${$c(sub)}</span></div><div><span>Taxes (12%, demo)</span><span>${$c(tax)}</span></div><div><span>Service fee (4%, demo)</span><span>${$c(fee)}</span></div><div style="border-top:1px solid var(--line);margin-top:6px;padding-top:8px;color:var(--gold)"><span>Total</span><span>${$c(sub+tax+fee)}</span></div></div><div class="meta">Cancellation: ${h.fc?'free until 48 hours before check-in':'non-refundable'}. Demo policy.</div>`;
+if(st==5)b.innerHTML=`<div class="sum"><b style="font-size:18px;color:var(--gold)">Demo reservation created</b><p>This is a design prototype. No booking was made, no payment was taken and no confirmation email will arrive. Connect a booking provider to make this real.</p><div><span>Ref</span><span>DEMO-${(h.id+1)*4817}</span></div></div><button class="btn g" onclick="dlg.close()">Close</button>`;
+if(st<5)b.insertAdjacentHTML('beforeend',`<div style="display:flex;gap:10px">${st?'<button class="btn g" id="bk">Back</button>':''}<button class="btn" id="nx">${st==4?'Confirm demo booking':'Continue'}</button></div>`);
+if($('#bk'))$('#bk').onclick=()=>{st--;draw()};if($('#nx'))$('#nx').onclick=()=>{if(st==1){const a=$('#b1').value,c=$('#b2').value;if(!a||!c||c<=a)return toast('Check-out must be after check-in.');$('#ci').value=a;$('#co').value=c;recalc()}if(st==2)g.gs=+$('#b3').value;if(st==3){g.n=$('#b4').value.trim();g.e=$('#b5').value.trim();if(!g.n||!/.+@.+/.test(g.e))return toast('Enter your name and a valid email.')}st++;draw()}};
+const recalc=()=>{};draw()}
+// ---- 3D map ----
+const cs=$('#cs');cs.innerHTML=Object.keys(POI).map(c=>`<option>${c}</option>`).join('');
+function mapDraw(){const c=cs.value,pl=$('#plane');pl.querySelectorAll('.pin').forEach(x=>x.remove());const pos=[[260,260],[120,180],[390,150],[150,390]];
+H.filter(h=>h.c==c).forEach((h,i)=>{const p=document.createElement('button');p.className='pin';p.dataset.k='h'+h.id;p.style.cssText=`left:${h.m[0]*8}px;top:${h.m[1]*7}px;--h:${50+h.s*12}px`;p.innerHTML=`<u></u><i></i><span>${h.n}</span>`;p.onclick=()=>pick(p,h);pl.appendChild(p)});
+POI[c].forEach((n,i)=>{const p=document.createElement('button');p.className='pin poi';p.style.cssText=`left:${pos[i][0]}px;top:${pos[i][1]}px`;p.innerHTML=`<i></i><span>${n}</span>`;p.onclick=()=>pick(p,null,n);pl.appendChild(p)});
+$('#mi').innerHTML=`<h3>${c}</h3><p class="meta">Select a marker to see details.</p>`}
+function pick(p,h,n){$$('.pin').forEach(x=>x.classList.remove('sel'));p.classList.add('sel');const x=parseFloat(p.style.left)-260;$('#plane').style.setProperty('--rz',(-25-x/18)+'deg');
+$('#mi').innerHTML=h?`<h3>${h.n}</h3><div class="meta">${'★'.repeat(h.s)} · ${h.r}/10 · ${h.d} km from center</div><div class="price">${$c(h.p)}<small> / night</small></div><div class="am">${h.am.map(a=>`<span>${a}</span>`).join('')}</div><button class="btn" onclick="openH(${h.id})">View hotel</button>`:`<h3>${n}</h3><p class="meta">Nearby attraction. Demo marker.</p>`}
+cs.onchange=mapDraw;mapDraw();
+$('#stage').onpointermove=e=>{if(RM)return;const r=e.currentTarget.getBoundingClientRect();$('#plane').style.setProperty('--rz',(-25+((e.clientX-r.left)/r.width-.5)*30)+'deg')};
+// ---- hero 3D ----
+(function(){const cv=$('#cv');let ok=false;try{ok=!!window.THREE&&!!cv.getContext('webgl')}catch(e){}if(!ok){cv.remove();return}
+const lite=innerWidth<760||(navigator.hardwareConcurrency||4)<4;const R=new THREE.WebGLRenderer({canvas:cv,antialias:!lite,alpha:false});R.setPixelRatio(Math.min(devicePixelRatio,lite?1:1.6));
+const S=new THREE.Scene();S.background=new THREE.Color(0x1a0f12);S.fog=new THREE.FogExp2(0x2a1712,.022);const C=new THREE.PerspectiveCamera(50,1,.1,200);
+const tex=(()=>{const c=document.createElement('canvas');c.width=256;c.height=128;const x=c.getContext('2d');x.fillStyle='#2a2019';x.fillRect(0,0,256,128);for(let i=0;i<8;i++)for(let j=0;j<4;j++){x.fillStyle=Math.random()>.25?'#ffcf86':'#4a3a2a';x.fillRect(i*32+8,j*32+8,16,18)}const t=new THREE.CanvasTexture(c);return t})();
+const B=new THREE.Group(),wall=new THREE.MeshStandardMaterial({color:0xe8dcc4,roughness:.7,map:tex,emissiveMap:tex,emissive:0xffffff,emissiveIntensity:.55});
+const box=(w,h,d,x,y,z,m)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m||wall);o.position.set(x,y,z);B.add(o);return o};
+box(14,5,4,0,2.5,0);box(5,8,4,-6,4,-.5);box(5,7,4,6,3.5,-.5);box(8,.4,5.5,0,5.2,.3,new THREE.MeshStandardMaterial({color:0xc9a15b,metalness:.8,roughness:.3}));
+for(let i=-3;i<=3;i++)box(.35,4,.35,i*1.6,2,2.4,new THREE.MeshStandardMaterial({color:0xf3ead8}));
+B.position.z=-8;S.add(B);const M=B.clone();M.scale.y=-1;M.position.y=-.02;S.add(M);
+const g=new THREE.Mesh(new THREE.PlaneGeometry(120,120),new THREE.MeshStandardMaterial({color:0x1f2a1c,roughness:1}));g.rotation.x=-Math.PI/2;g.position.y=-.05;S.add(g);
+const W=new THREE.Mesh(new THREE.PlaneGeometry(18,9),new THREE.MeshStandardMaterial({color:0x2f7f95,transparent:true,opacity:.72,metalness:.9,roughness:.08,emissive:0x0a3440}));W.rotation.x=-Math.PI/2;W.position.set(0,.02,-1.5);S.add(W);
+for(let i=0;i<(lite?14:30);i++){const t=new THREE.Group(),a=Math.random()*6.28,r=14+Math.random()*22,h=1.5+Math.random()*2;const k=new THREE.Mesh(new THREE.CylinderGeometry(.1,.14,h*.5),new THREE.MeshStandardMaterial({color:0x3b2616}));k.position.y=h*.25;const l=new THREE.Mesh(new THREE.ConeGeometry(.9,h,7),new THREE.MeshStandardMaterial({color:0x1d3a22}));l.position.y=h*.8;t.add(k,l);t.position.set(Math.cos(a)*r,0,Math.sin(a)*r-14);if(Math.abs(t.position.x)<11&&t.position.z>-12&&t.position.z<-3)continue;S.add(t)}
+S.add(new THREE.HemisphereLight(0xffc48a,0x1a1030,.55));const sun=new THREE.DirectionalLight(0xff9a50,1.1);sun.position.set(-10,6,-20);S.add(sun);
+[[-8,.5],[8,.5],[-3,.5],[3,.5]].forEach(p=>{const l=new THREE.PointLight(0xffb464,.9,12);l.position.set(p[0],1.5,-4);S.add(l)});
+const st=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute(Array.from({length:300},(_,i)=>i%3==1?10+Math.random()*30:(Math.random()-.5)*120),3)),new THREE.PointsMaterial({size:.15,color:0xfff0d0}));S.add(st);
+let mx=0,my=0,sc=0,t=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});addEventListener('scroll',()=>sc=Math.min(1,scrollY/innerHeight));
+function rs(){const r=cv.parentElement.getBoundingClientRect();R.setSize(r.width,r.height,false);C.aspect=r.width/r.height;C.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+(function loop(){requestAnimationFrame(loop);if(!vis)return;const sp=RM?0:1;t+=.004*sp;W.material.emissiveIntensity=1;
+C.position.set(Math.sin(t)*3+mx*4*sp,3.2+Math.sin(t*.7)*.5-my*1.5*sp-sc*2,12-t%0*0-sc*6);C.lookAt(0,2.5,-8);R.render(S,C)})();
+$('#fb').style.opacity=0})();
+addEventListener('load',()=>setTimeout(()=>$('#load').classList.add('off'),RM?0:1400));
+</script></body></html>
